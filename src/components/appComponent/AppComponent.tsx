@@ -19,18 +19,20 @@ export const AppComponent = () => {
     console.log(weather.temp)
   
     return (
-        <div className='container'>
-            <div className='wrapper'>
-                <div className='input-data'>
-                 <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} onKeyPress={getData}></input>
-                 <div className="underline"></div>
-                 <label>
-                     Search
-                 </label>
-                 </div>
-            </div>
+        <div>
+            <div className="header"><h1>Weather Application</h1></div>
+       <div className="searchBox">
+
+<input className="searchInput"type="text" name="" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} onKeyPress={getData}></input>
+<button className="searchButton">
+    <i className="material-icons">
+        search
+    </i>
+    
+</button>
+</div>
                {weather.main && ( 
-            <div>
+            <div className="weatherContainer">
                 <h1>{weather.name}</h1>
                 <h2>{Math.round(weather.main.temp)}°C</h2>
                 <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}></img>
